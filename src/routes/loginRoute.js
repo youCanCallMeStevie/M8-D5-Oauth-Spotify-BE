@@ -2,7 +2,7 @@ const express = require("express");
 const passport = require("passport");
 
 const router = express.Router();
-const {  oAuthRedirectController, refreshTokenController,loginController, logoutController, registerController  } = require("../controllers/login");
+const {  oAuthRedirectController, refreshTokenController,loginController, logoutController, registerController, userLoginController  } = require("../controllers/login");
 
 // const validation = require("../validation/validationMiddleware");
 // const valSchema = require("../validation/validationSchema");

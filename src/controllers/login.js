@@ -75,7 +75,7 @@ exports.oAuthRedirectController= async (req, res, next) => {
       //determine when the cookie needs to be used
       path: "/refreshToken",
     });
-    res.status(200).redirect(`${process.env.FE_URL}/home`); //sending back to FE & there is no body in a redirect
+    res.status(200).redirect(`${process.env.FE_URL_DEV}/home`); //sending back to FE & there is no body in a redirect
   } catch (error) {
     next(error);
   }
@@ -99,22 +99,6 @@ exports.registerController = async (req, res, next) => {
 };
 
 
-
-
-
-
-exports.logoutAllController = async (req, res, next) => {
-	try {
-		req.user.refreshTokens = [];
-		await req.user.save();
-		res.clearCookie("token");
-		res.clearCookie("refreshToken");
-		res.send("OK");
-	} catch (error) {
-		console.log("LogoutAll error: ", error);
-		next(error);
-	}
-};
 
 exports.userLoginController = async (req, res, next) => {
   try {
