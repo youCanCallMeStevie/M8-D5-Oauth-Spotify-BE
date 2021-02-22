@@ -3,7 +3,7 @@ const passport = require("passport");
 
 const router = express.Router();
 const {  oAuthRedirectController, refreshTokenController,loginController, logoutController, registerController, userLoginController  } = require("../controllers/login");
-
+const {authorize} = require("../auth/middleware")
 // const validation = require("../validation/validationMiddleware");
 // const valSchema = require("../validation/validationSchema");
 
@@ -26,7 +26,7 @@ router.get(
 );
 
 
-router.get("/me", userLoginController);
+router.get("/me", authorize, userLoginController);
 
 // router.get("/fbRedirect",passport.authenticate("facebook"), oAuthRedirectController);
 // router.get(

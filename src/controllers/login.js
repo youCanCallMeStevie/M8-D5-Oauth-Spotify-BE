@@ -102,7 +102,8 @@ exports.registerController = async (req, res, next) => {
 
 exports.userLoginController = async (req, res, next) => {
   try {
-    //extract the token from the cokie and verify if user is authorized
+    const {user} = req
+    res.send(user)    
   } catch (error) {
     console.log("userLoginController error: ", error);
 		next(error);
